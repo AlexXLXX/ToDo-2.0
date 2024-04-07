@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #2F4F4F;
+}
+
+.conteiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 11vw ;
+  padding-block: 5vw;
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.section-one {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+
+.main-input {
+  height: 40vw;
+  font-size: 7vw;
+  background-color: transparent;
+  border: 2px solid white;
+  border-image: linear-gradient(to right top,#D3D3D3, #778899,	#696969, #DCDCDC);
+  border-image-slice: 1;
+  color: white;
+  padding: 5px;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.main-input::placeholder {
+  font-style: italic;
+  color: #C0C0C0;
+}
+
+.main-input::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.btn-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12vw;
+  font-size: 15vw;
+  border: 2px solid white;
+  border-radius: 10px;
+  border-image: linear-gradient(to right top,#D3D3D3, #778899,	#696969, #DCDCDC);
+  border-image-slice: 1;
+  background-color: #008000;
+  color: white;
+}
+
+.section-two {
+  width: 85%;
+  margin-top: 10px;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.list__li {
+  font-size: 6vw;
+  border: 2px solid white;
+  border-radius: 10px;
+  border-image: linear-gradient(to right top,#D3D3D3, #778899,	#696969, #DCDCDC);
+  border-image-slice: 1;
+  padding: 10px;
+  margin-bottom: 1vw;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 15vw;
+  touch-action: none;
+}
+
+.list__li__number {
+}
+
+.list__li__text {
+  width: 65%;
+  word-wrap: break-word;
+  /* position: relative; */
+}
+
+.list__li__btn-dnd {
+  width: 12%;
+  border: none;
+  border-radius: 7px;
+  background-color: transparent;
+  color: white;
+  font-size: 8vw;
+  margin-bottom: 1.5vw;
+  
+}
+
+.list__li__btn-delete {
+  width: 12%;
+  border: 2px solid white;
+  border-radius: 7px;
+  background-color: #800000;
+  color: white;
+  font-size: 8vw;
+  margin-left: 1vw;
+}
+
+.newInput {
+  font: inherit;
+  outline: 0;
+  padding: 0;
+  text-align: left;
+  border: 2px dashed rgb(168, 9, 9);
+  width: 65%;
+  background-color: transparent;
+  color: white;
+}
+
+.newInput::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.dragging {
+  opacity: 0.5;
+}
