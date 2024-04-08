@@ -38,7 +38,7 @@ function renderTasksList(tasks) {
       <span class="list__li__number">${index + 1}. </span>
       <span class="list__li__text" data-action="text">${element.text}</span>
       <button class="list__li__btn-dnd" data-action="dnd"><img src="https://img.icons8.com/ios-filled/50/FFFFFF/sorting-arrows.png" alt="sorting-arrows"/></button>
-      <button class="list__li__btn-delete" data-action="delete"><img src="https://img.icons8.com/ios/50/FFFFFF/delete--v1.png" alt="delete--v1"/></button>
+      <button class="list__li__btn-delete" data-action="delete"><img src="https://img.icons8.com/wired/64/FFFFFF/multiply.png" alt="multiply"/></button>
     </li>
     `;
       taskList.insertAdjacentHTML("beforeend", taskTemplate);

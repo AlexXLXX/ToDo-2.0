@@ -62,13 +62,16 @@ h1 {
   justify-content: center;
   align-items: center;
   height: 12vw;
-  font-size: 15vw;
   border: 2px solid white;
-  border-radius: 10px;
   border-image: linear-gradient(to right top,#D3D3D3, #778899,	#696969, #DCDCDC);
   border-image-slice: 1;
   background-color: #008000;
   color: white;
+}
+
+.btn-add img {
+  pointer-events: none;
+  height: 100%;
 }
 
 .section-two {
@@ -135,7 +138,7 @@ h1 {
 
 .list__li__btn-delete img {
   width: 100%;
-  padding: 0.7vw;
+  /* padding: 0.7vw; */
   pointer-events: none;
 }
 
