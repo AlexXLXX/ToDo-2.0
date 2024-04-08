@@ -143,9 +143,16 @@ function editTaskTextByDobleTouch(e) {
 }
 
 new Sortable(taskList, {
+  sort: true,  // sorting inside list
+	delay: 400, // time in milliseconds to define when the sorting should start
+	delayOnTouchOnly: true,
   handle: '.list__li__btn-dnd', // handle's class
   animation: 250,
   ghostClass: 'dragging',
+  chosenClass: 'dragging',
+  forceFallback: true,
+  scroll: true,
+  bubbleScroll: true,
   onSort: function (){
     const arrLS = getTasksToLocalStorage();
     const arrTasks = [...document.querySelectorAll(".list__li")];

@@ -78,6 +78,8 @@ h1 {
 
 .list {
   list-style-type: none;
+  overflow: auto;
+  touch-action: -branch;
 }
 
 .list__li {
@@ -86,14 +88,15 @@ h1 {
   border-radius: 10px;
   border-image: linear-gradient(to right top,#D3D3D3, #778899,	#696969, #DCDCDC);
   border-image-slice: 1;
-  padding: 10px;
+  padding-inline: 2vw;
+  padding-block: 1.5vw;
   margin-bottom: 1vw;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 15vw;
-  touch-action: none;
+  touch-action: -branch;
 }
 
 .list__li__number {
@@ -108,32 +111,24 @@ h1 {
 .list__li__btn-dnd{
   width: 12%;
   border: none;
-  border-radius: 7px;
   background-color: transparent;
-  color: white;
-  font-size: 8vw;
-  /* margin-bottom: 1.5vw; */
   display: flex;
   align-items: center;
 }
 
 .list__li__btn-dnd img {
   width: 100%;
-  
+  pointer-events: none;
 }
 
 .list__li__btn-delete {
   width: 12%;
-  border: 2px solid white;
-  border-radius: 7px;
+  height: 100%;
   background-color: #800000;
-  color: white;
-  font-size: 8vw;
   margin-left: 1vw;
   display: flex;
   align-items: center;
   border: 2px solid white;
-  border-radius: 10px;
   border-image: linear-gradient(to right top,#D3D3D3, #778899,	#696969, #DCDCDC);
   border-image-slice: 1;
 }
@@ -141,6 +136,7 @@ h1 {
 .list__li__btn-delete img {
   width: 100%;
   padding: 0.7vw;
+  pointer-events: none;
 }
 
 .newInput {
