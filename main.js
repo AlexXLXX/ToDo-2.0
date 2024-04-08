@@ -34,11 +34,11 @@ function renderTasksList(tasks) {
     .sort((a, b) => a.position - b.position)
     .forEach((element, index) => {
       const taskTemplate = `
-      <li class="list__li" data-task-id="${element.id}">
+      <li class="list__li" data-task-id="${element.id}" data-id="${element.id}">
       <span class="list__li__number">${index + 1}. </span>
       <span class="list__li__text" data-action="text">${element.text}</span>
-      <button class="list__li__btn-dnd" data-action="dnd">||</button>
-      <button class="list__li__btn-delete" data-action="delete">X</button>
+      <button class="list__li__btn-dnd" data-action="dnd"><img src="https://img.icons8.com/ios-filled/50/FFFFFF/sorting-arrows.png" alt="sorting-arrows"/></button>
+      <button class="list__li__btn-delete" data-action="delete"><img src="https://img.icons8.com/ios/50/FFFFFF/delete--v1.png" alt="delete--v1"/></button>
     </li>
     `;
       taskList.insertAdjacentHTML("beforeend", taskTemplate);
@@ -55,7 +55,7 @@ function addTask() {
   tasks.unshift({
     id: Number(new Date()),
     text: taskText,
-    position: 1000,
+    position: -1000,
   });
 
   input.value = "";
@@ -142,58 +142,22 @@ function editTaskTextByDobleTouch(e) {
   }
 }
 
-// function activationDrag() {
-//   const arrTasks = [...document.querySelectorAll(".list__li")];
-//   arrTasks.forEach((item) => {
-//     item.children[2].addEventListener("pointerdown", function (e) {
-//       item.draggable = true;
-//       item.classList.add("dragging");
-//       // item.ondragstart = () => false;
-//       console.log(item);
-//     });
+new Sortable(taskList, {
+  handle: '.list__li__btn-dnd', // handle's class
+  animation: 250,
+  ghostClass: 'dragging',
+  onSort: function (){
+    const arrLS = getTasksToLocalStorage();
+    const arrTasks = [...document.querySelectorAll(".list__li")];
 
-//     item.addEventListener("pointerup", function () {
-//       item.draggable = false;
-//       item.classList.remove("dragging");
-//       if (arrTasks.length > 1) {
-//         savePositionTask();
-//       }
-//     });
-//   });
-// }
-
-// function savePositionTask() {
-//   const arrLS = getTasksToLocalStorage();
-//   const arrTasks = [...document.querySelectorAll(".list__li")];
-
-//   arrTasks.forEach((item, i) => {
-//     const id = Number(item.dataset.taskId);
-//     const index = arrLS.findIndex((value) => value.id === id);
-//     if (index !== -1) {
-//       arrLS[index].position = i;
-//     }
-//   });
-//   setTasksToLocalStorage(arrLS);
-//   updateTasksList();
-// }
-
-// function moveDragElement(e) {
-//   e.preventDefault();
-
-//   const activeElement = taskList.querySelector(".dragging");
-//   const currentElement = e.target.closest(".list__li");
-//   const isMoveable =
-//     activeElement !== currentElement &&
-//     currentElement.classList.contains(".list__li");
-
-//   if (!isMoveable) {
-//     return;
-//   }
-
-//   const nextElement =
-//     currentElement === activeElement.nextElementSibling
-//       ? currentElement.nextElementSibling
-//       : currentElement;
-
-//   taskList.insertBefore(activeElement, nextElement);
-// }
+   arrTasks.forEach((item, i) => {
+      const id = Number(item.dataset.taskId);
+      const index = arrLS.findIndex((value) => value.id === id);
+      if (index !== -1) {
+       arrLS[index].position = i;
+     }
+  });
+  setTasksToLocalStorage(arrLS);
+  updateTasksList();
+},
+ });
